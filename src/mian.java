@@ -2,6 +2,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class mian {
     public static void cosequentialProcessing(ArrayList<Integer> arrayListOne, ArrayList<Integer> arrayListTwo) {
@@ -64,11 +65,10 @@ public class mian {
 
 
     }
-    public static void readRunFile(String path) {
-
+    public static void readRunFile(String path,int k) {
         try {
             RandomAccessFile file = new RandomAccessFile(path, "rw");
-            for (int i = 0; i < 8; i++) {
+            for (int i = 0; i < k*8; i++) {
                 System.out.print(file.readInt() + " ");
                 System.out.println(file.readInt());
             }
@@ -85,7 +85,6 @@ public class mian {
                     int tempKey = obj.get(i).key;
                     obj.get(i).key = obj.get(j).key;
                     obj.get(j).key = tempKey;
-                    
                     int tepOffset = obj.get(i).byteOffset;
                     obj.get(i).byteOffset =  obj.get(j).byteOffset;
                     obj.get(j).byteOffset= tepOffset ;
@@ -111,7 +110,6 @@ public class mian {
                 run = sort(run);
                 file.seek(0);
                 for (int ii = 0; ii < run.size(); ii++) {
-
                     file.writeInt(run.get(ii).key);
                     file.writeInt(run.get(ii).byteOffset);
                 }
@@ -124,15 +122,113 @@ public class mian {
         }
         return null;
     }
-    void DoKWayMergeAndWriteASortedFile(String[] SortedRunsNames, int K, String Sortedfilename) {
+    
+    public static boolean terminatable(ArrayList<Integer> ptrs) {
+        if (Collections.frequency(ptrs, -1) == ptrs.size()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    static int getMinimumWithException(ArrayList<Integer> taken) {
+        ArrayList<Integer> arr = new ArrayList(taken);
+        Collections.sort(arr);
+        for (int i = 0; i < arr.size(); i++) {
+            if (arr.get(i) != -1) return arr.get(i);
+        }
+        return 0;
+    }
+    public static int[] getKey(RandomAccessFile file, int ptr) {
+        int[] record = new int[2];
+        try {
+            file.seek(0); //
+            file.seek(ptr * 8);
+            record[0] = file.readInt();
+            record[1] = file.readInt();
+            return record;
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+    public static int getFileLength(RandomAccessFile file) {
+        try {
+            Long len = file.length();
+            return len.intValue();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return -1;
+    }
+    public static void kways(String[] fileNames, int kways,String fullFileName) {
+        try {
+            RandomAccessFile fullFile = new RandomAccessFile(fullFileName,"rw");
+            ArrayList<RandomAccessFile> files = new ArrayList<>();
+            for (int i = 0; i < kways; i++) {
+                RandomAccessFile file = new RandomAccessFile(fileNames[i], "rw");
+                files.add(file);
+            }
+            ArrayList<Integer> ptrs = new ArrayList<>();
+            ArrayList<Integer> results = new ArrayList<>();
+            ArrayList<Integer> resultsTwo = new ArrayList<>();
+            ArrayList<Integer> taken = new ArrayList<>();
+            ArrayList<Integer> byteOffset = new ArrayList<>();
+            //make pointer equal to number of k ways
+            for (int i = 0; i < kways; i++) {
+                Integer pointer = 0;
+                ptrs.add(pointer);
+            }
+            while (!terminatable(ptrs)) {
+                for (int j = 0; j < ptrs.size(); j++) {
+                    if (ptrs.get(j) == -1) {
+                        taken.add(-1);
+                        byteOffset.add(-1);
+                        
+                    } else {
+                        taken.add(getKey(files.get(j), ptrs.get(j))[0]);
+                        byteOffset.add(getKey(files.get(j), ptrs.get(j))[1]);
+                    }
+                }
+                fullFile.writeInt(getMinimumWithException(taken));
+                results.add(getMinimumWithException(taken));
+                int minIndex = taken.indexOf(getMinimumWithException(taken));
+                fullFile.writeInt(byteOffset.get(minIndex));
+                resultsTwo.add(byteOffset.get(minIndex));
+                int x = getFileLength(files.get(minIndex)) / 8;
+                if (ptrs.get(minIndex) + 1 > x - 1) //if the pointer value exceed the interval of the run
+                {
+                    ptrs.set(minIndex, -1);
+                } else {
+                    ptrs.set(minIndex, ptrs.get(minIndex) + 1);
+                }
+                taken.clear();
+                byteOffset.clear();
+            }
+            fullFile.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
     int BinarySearchOnSortedFile(String Sortedfilename, int RecordKey) {
         return 0;
     }
     public static void main(String args[]) throws IOException {
-        String[] Runs = DivideInputFileIntoRuns("m", 8);
-        SortEachRunOnMemoryAndWriteItBack(Runs);
-        readRunFile("C:\\Users\\boody\\Desktop\\New folder (2)\\src\\runs\\run_number_0.bin");
-
+        String[] filesName = {"C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_0.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_1.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_2.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_3.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_4.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_5.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_6.bin",
+                "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_7.bin"
+        };
+        int  k = 3 ;
+        kways(filesName, k,"C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\full.bin");
+        readRunFile("C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\full.bin",k);
+    
+    
+    
     }
 }
