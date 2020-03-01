@@ -211,6 +211,14 @@ public class mian {
             e.printStackTrace();
         }
     }
+    static  void mergerHelper(String []filesName,  int _Kways,String dist_file ){
+        ArrayList<String> queredFiles = new ArrayList<>();
+        for (int i = 1; i <filesName.length-1 ; i++) {
+        
+        
+        }
+        
+    }
     int BinarySearchOnSortedFile(String Sortedfilename, int RecordKey) {
         return 0;
     }
@@ -225,9 +233,10 @@ public class mian {
                 "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\run_number_7.bin"
         };
         int  k = 3 ;
+        String distname = "C:\\\\Users\\\\boody\\\\IdeaProjects\\\\k-way-merge\\\\src\\\\runcpy\\\\full.bin\"" ;
         kways(filesName, k,"C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\full.bin");
-        readRunFile("C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\full.bin",k);
-    
+//        readRunFile("C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\full.bin",k);
+        mergerHelper(filesName,k,distname);
     
     
     }
