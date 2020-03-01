@@ -40,7 +40,7 @@ public class mian {
     static String[] DivideInputFileIntoRuns(String Inputfilename, int runSize) {
 
         try {
-            RandomAccessFile file = new RandomAccessFile("../Index.bin", "r");
+            RandomAccessFile file = new RandomAccessFile("C:\\Users\\boody\\Desktop\\New folder (2)\\src\\Index.bin", "r");
             String[] runsName = new String[512 / (runSize * 8)];
             System.out.println(file.length());
             for (int i = 0; i < file.length(); i += 512 / 8) {
@@ -82,9 +82,13 @@ public class mian {
         for (int i = 0; i < obj.size(); i++) {
             for (int j = i + 1; j < obj.size(); j++) {
                 if (obj.get(i).key > obj.get(j).key) {
-                    int temp = obj.get(i).key;
+                    int tempKey = obj.get(i).key;
                     obj.get(i).key = obj.get(j).key;
-                    obj.get(j).key = temp;
+                    obj.get(j).key = tempKey;
+                    
+                    int tepOffset = obj.get(i).byteOffset;
+                    obj.get(i).byteOffset =  obj.get(j).byteOffset;
+                    obj.get(j).byteOffset= tepOffset ;
                 }
             }
         }
@@ -100,6 +104,9 @@ public class mian {
                     pair.key = file.readInt();
                     pair.byteOffset = file.readInt();
                     run.add(pair);
+                }
+                for (int j = 0; j <run.size() ; j++) {
+                    System.out.println(run.get(j).key+" *** "+run.get(j).byteOffset);
                 }
                 run = sort(run);
                 file.seek(0);
@@ -125,6 +132,7 @@ public class mian {
     public static void main(String args[]) throws IOException {
         String[] Runs = DivideInputFileIntoRuns("m", 8);
         SortEachRunOnMemoryAndWriteItBack(Runs);
+        readRunFile("C:\\Users\\boody\\Desktop\\New folder (2)\\src\\runs\\run_number_0.bin");
 
     }
 }
