@@ -212,9 +212,28 @@ public class mian {
         }
     }
     static  void mergerHelper(String []filesName,  int _Kways,String dist_file ){
+       
         ArrayList<String> queredFiles = new ArrayList<>();
-        for (int i = 1; i <filesName.length-1 ; i++) {
-        
+        for (int i = 0; i <filesName.length; i++) {
+            System.out.println("i is"+i);
+            if ((i)%_Kways==0 && i != 0 )
+            {
+                System.out.println("qureid is "+queredFiles);
+                String[] array = new String[queredFiles.size()];
+                for (int j = 0; j <queredFiles.size() ; j++) {
+                    array[j]=queredFiles.get(j);
+                }
+                
+                
+                
+            }
+            else
+            {
+                queredFiles.add(filesName[i]);
+    
+                //implement k way merge with queried Files
+            }
+         
         
         }
         

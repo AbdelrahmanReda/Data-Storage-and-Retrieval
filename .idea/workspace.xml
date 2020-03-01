@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9dfeef82-ab0f-4a87-b180-a4ab1cd49e65" name="Default Changelist" comment="">
+    <list default="true" id="9dfeef82-ab0f-4a87-b180-a4ab1cd49e65" name="Default Changelist" comment="fix sorting bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/simple index/mian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/simple index/mian.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian.java" afterDir="false" />
@@ -84,7 +84,7 @@
       <workItem from="1582547743602" duration="460000" />
       <workItem from="1582898817870" duration="3685000" />
       <workItem from="1582912974873" duration="10029000" />
-      <workItem from="1583091739214" duration="7053000" />
+      <workItem from="1583091739214" duration="7906000" />
     </task>
     <task id="LOCAL-00001" summary="fix consequential processing">
       <created>1582899052757</created>
