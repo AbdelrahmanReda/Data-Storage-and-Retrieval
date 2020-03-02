@@ -131,7 +131,7 @@ public class mian {
     
     public static boolean terminatable(ArrayList<Integer> ptrs) {
         try {
-            Thread.sleep(300);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -209,6 +209,7 @@ public class mian {
     }
     
     public static void kways(String[] fileNames, int kways, String fullFileName) {
+    
         String original = fullFileName;
         try {
             fullFileName = makeTempFile(fullFileName); //containing mask file
@@ -265,7 +266,7 @@ public class mian {
             myfile.renameTo(originalFile); // renaming the mask to original
             
             try {
-                Thread.sleep(3000);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -306,14 +307,19 @@ public class mian {
                 for (int j = 0; j < queuredFiles.length; j++) {
                     System.out.println(">>" + queuredFiles[j]);
                 }
-                kways(queuredFiles, _Kways, dist_file);
-                
-                
+                kways(queuredFiles, queuredFiles.length, dist_file);
                 choosenFiles.clear();
                 choosenFiles.add(dist_file);
                 choosenFiles.add(filesName[i]);
             }
         }
+        String[] queuredFiles = new String[choosenFiles.size()];
+    
+        for (int j = 0; j < choosenFiles.size(); j++) {
+            queuredFiles[j] = choosenFiles.get(j);
+        }
+        kways(queuredFiles, queuredFiles.length, dist_file);
+        
         
     }
     
@@ -343,7 +349,7 @@ public class mian {
         };
         int k = 3;
         String distname = "C:\\Users\\boody\\IdeaProjects\\k-way-merge\\src\\runcpy\\full.bin";
-        // mergerHelper(filesName,k,distname);
+        mergerHelper(filesName, k, distname);
         readRunFile(distname, 8);
         
         
