@@ -6,17 +6,17 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class mian {
-
     static String[] DivideInputFileIntoRuns(String Inputfilename, int runSize) {
         try {
-            RandomAccessFile file = new RandomAccessFile("C:\\Users\\boody\\Desktop\\New folder (2)\\src\\Index.bin", "r");
-            String[] runsName = new String[512 / (runSize * 8)];
-            System.out.println(file.length());
-            for (int i = 0; i < file.length(); i += 512 / 8) {
-                String fileName = "src/runs/run_number_" + (i / (512 / 8) + 0) + ".bin";
-                runsName[i / (512 / 8)] = fileName;
+            RandomAccessFile file = new RandomAccessFile(Inputfilename, "r");
+            String[] runsName = new String[(int) Math.ceil(file.length() / (double) (runSize * 8))];
+            for (int i = 0; i < runsName.length; i++) {
+                String fileName = "src/runs/run_number_" + i + ".bin";
+                runsName[i] = fileName;
                 RandomAccessFile runFile = new RandomAccessFile(fileName, "rw");
-                for (int j = 0; j < 8; j++) {
+                for (int j = 0; j < runSize; j++) {
+                    if (file.getFilePointer() == file.length())
+                        break;
                     runFile.writeInt(file.readInt());
                     runFile.writeInt(file.readInt());
                 }
@@ -62,6 +62,7 @@ public class mian {
     }
 
     static String[] SortEachRunOnMemoryAndWriteItBack(String[] RunsFilesNames) {
+        /*Internal Sorting function to sort each run*/
         for (int i = 0; i < RunsFilesNames.length; i++) {
             ArrayList<Pair> run = new ArrayList<>();
             try {
@@ -72,10 +73,11 @@ public class mian {
                     pair.byteOffset = file.readInt();
                     run.add(pair);
                 }
+                run = sort(run);
                 for (int j = 0; j < run.size(); j++) {
                     System.out.println(run.get(j).key + " *** " + run.get(j).byteOffset);
                 }
-                run = sort(run);
+                System.out.println("------------------------------------------");
                 file.seek(0);
                 for (int ii = 0; ii < run.size(); ii++) {
                     file.writeInt(run.get(ii).key);
@@ -88,7 +90,7 @@ public class mian {
                 e.printStackTrace();
             }
         }
-        return null;
+        return RunsFilesNames;
     }
 
     public static boolean terminatable(ArrayList<Integer> runPtr) {
@@ -306,20 +308,11 @@ public class mian {
     }
 
     public static void main(String args[]) throws IOException {
-        String[] filesName = {
-                "src/runs/run_number_0.bin",
-                "src/runs/run_number_1.bin",
-                "src/runs/run_number_2.bin",
-                "src/runs/run_number_3.bin",
-                "src/runs/run_number_4.bin",
-                "src/runs/run_number_5.bin",
-                "src/runs/run_number_6.bin",
-                "src/runs/run_number_7.bin"};
-        int k = 3;
-        String distname = "src/runs/full.bin";
-        // mergerHelper(filesName, k, distname);
-        // readRunFile("src/runs/full.bin");
-        // binartSearchHelper(distname,1308);
+        mergerHelper(SortEachRunOnMemoryAndWriteItBack(
+                DivideInputFileIntoRuns("src/runs/Index.bin", 2)),
+                7,
+                "src/runs/full.bin");
+        readRunFile("src/runs/full.bin");
 
     }
 }
