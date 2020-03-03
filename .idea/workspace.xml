@@ -3,11 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="9dfeef82-ab0f-4a87-b180-a4ab1cd49e65" name="Default Changelist" comment="fix sorting bug">
       <change afterPath="$PROJECT_DIR$/src/runs/full.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/simple index/Pair.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/simple index/Pair.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/simple index/mian.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/simple index/mian.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/simple index/runs/run_number_2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/simple index/runs/run_number_2.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/mian.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/mian.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runs/run_number_0.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/runs/run_number_0.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/runs/run_number_2.bin" beforeDir="false" afterPath="$PROJECT_DIR$/src/runs/run_number_2.bin" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,18 +49,6 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
-  </component>
   <component name="RunManager">
     <configuration name="mian" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="mian" />
@@ -87,6 +79,7 @@
       <workItem from="1582912974873" duration="10029000" />
       <workItem from="1583091739214" duration="31176000" />
       <workItem from="1583179677654" duration="7368000" />
+      <workItem from="1583244844569" duration="7092000" />
     </task>
     <task id="LOCAL-00001" summary="fix consequential processing">
       <created>1582899052757</created>
@@ -159,29 +152,43 @@
     <option name="LAST_COMMIT_MESSAGE" value="fix sorting bug" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="302" y="330" width="665" height="402" key="#com.intellij.fileTypes.FileTypeChooser" />
-    <state x="302" y="330" width="665" height="402" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1280.997@0.27.1280.997" />
-    <state x="475" y="417" width="320" height="228" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" />
-    <state x="475" y="417" width="320" height="228" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.27.1280.997@0.27.1280.997" />
-    <state x="196" y="100" width="932" height="924" key="CommitChangelistDialog2" />
-    <state x="196" y="100" width="932" height="924" key="CommitChangelistDialog2/0.27.1280.997@0.27.1280.997" />
-    <state x="100" y="127" width="1080" height="797" key="DiffContextDialog" />
-    <state x="100" y="127" width="1080" height="797" key="DiffContextDialog/0.27.1280.997@0.27.1280.997" />
-    <state width="1232" height="255" key="GridCell.Tab.0.bottom" />
-    <state width="1232" height="255" key="GridCell.Tab.0.bottom/0.27.1280.997@0.27.1280.997" />
-    <state width="1232" height="255" key="GridCell.Tab.0.center" />
-    <state width="1232" height="255" key="GridCell.Tab.0.center/0.27.1280.997@0.27.1280.997" />
-    <state width="1232" height="255" key="GridCell.Tab.0.left" />
-    <state width="1232" height="255" key="GridCell.Tab.0.left/0.27.1280.997@0.27.1280.997" />
-    <state width="1232" height="255" key="GridCell.Tab.0.right" />
-    <state width="1232" height="255" key="GridCell.Tab.0.right/0.27.1280.997@0.27.1280.997" />
-    <state x="235" y="261" width="800" height="540" key="Vcs.Push.Dialog.v2" />
-    <state x="235" y="261" width="800" height="540" key="Vcs.Push.Dialog.v2/0.27.1280.997@0.27.1280.997" />
-    <state x="276" y="353" key="com.intellij.ide.util.TipDialog" />
-    <state x="276" y="353" key="com.intellij.ide.util.TipDialog/0.27.1280.997@0.27.1280.997" />
-    <state x="382" y="445" width="515" height="172" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" />
-    <state x="382" y="445" width="515" height="172" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1280.997@0.27.1280.997" />
-    <state x="252" y="92" width="775" height="867" key="find.popup" />
-    <state x="252" y="92" width="775" height="867" key="find.popup/0.27.1280.997@0.27.1280.997" />
+    <state x="302" y="330" width="665" height="402" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1583244854958" />
+    <state x="302" y="330" width="665" height="402" key="#com.intellij.fileTypes.FileTypeChooser/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
+    <state x="475" y="417" width="329" height="228" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583244963043">
+      <screen x="0" y="27" width="1280" height="997" />
+    </state>
+    <state x="475" y="417" width="329" height="228" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.27.1280.997@0.27.1280.997" timestamp="1583244963043" />
+    <state x="196" y="100" width="932" height="924" key="CommitChangelistDialog2" timestamp="1583244854958" />
+    <state x="196" y="100" width="932" height="924" key="CommitChangelistDialog2/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
+    <state x="100" y="127" width="1080" height="797" key="DiffContextDialog" timestamp="1583244854958" />
+    <state x="100" y="127" width="1080" height="797" key="DiffContextDialog/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
+    <state width="1232" height="2" key="GridCell.Tab.0.bottom" timestamp="1583251948179">
+      <screen x="0" y="27" width="1280" height="997" />
+    </state>
+    <state width="1232" height="2" key="GridCell.Tab.0.bottom/0.27.1280.997@0.27.1280.997" timestamp="1583251948179" />
+    <state width="1232" height="2" key="GridCell.Tab.0.center" timestamp="1583251948179">
+      <screen x="0" y="27" width="1280" height="997" />
+    </state>
+    <state width="1232" height="2" key="GridCell.Tab.0.center/0.27.1280.997@0.27.1280.997" timestamp="1583251948179" />
+    <state width="1232" height="2" key="GridCell.Tab.0.left" timestamp="1583251948178">
+      <screen x="0" y="27" width="1280" height="997" />
+    </state>
+    <state width="1232" height="2" key="GridCell.Tab.0.left/0.27.1280.997@0.27.1280.997" timestamp="1583251948178" />
+    <state width="1232" height="2" key="GridCell.Tab.0.right" timestamp="1583251948179">
+      <screen x="0" y="27" width="1280" height="997" />
+    </state>
+    <state width="1232" height="2" key="GridCell.Tab.0.right/0.27.1280.997@0.27.1280.997" timestamp="1583251948179" />
+    <state x="235" y="261" width="800" height="540" key="Vcs.Push.Dialog.v2" timestamp="1583244854958" />
+    <state x="235" y="261" width="800" height="540" key="Vcs.Push.Dialog.v2/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
+    <state x="276" y="353" key="com.intellij.ide.util.TipDialog" timestamp="1583244854958" />
+    <state x="276" y="353" key="com.intellij.ide.util.TipDialog/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
+    <state x="119" y="114" width="1031" height="835" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1583248781276">
+      <screen x="0" y="27" width="1280" height="997" />
+    </state>
+    <state x="119" y="114" width="1031" height="835" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.27.1280.997@0.27.1280.997" timestamp="1583248781275" />
+    <state x="382" y="445" width="515" height="172" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1583244854958" />
+    <state x="382" y="445" width="515" height="172" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
+    <state x="252" y="92" width="775" height="867" key="find.popup" timestamp="1583244854958" />
+    <state x="252" y="92" width="775" height="867" key="find.popup/0.27.1280.997@0.27.1280.997" timestamp="1583244854958" />
   </component>
 </project>
